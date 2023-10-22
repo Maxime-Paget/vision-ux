@@ -1,0 +1,19 @@
+.header {
+    box-shadow: 2px 5px 3px -3px lightgray;
+    width: 85%;
+    height: 10rem;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    &__menu {
+        display: flex;
+        min-width: 50%;
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
