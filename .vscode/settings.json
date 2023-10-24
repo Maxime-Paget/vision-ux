@@ -10,4 +10,5 @@
         "/nodes_modules/**",
         "/.vscode/**"
      ],
+     "liveServer.settings.root": "/public"
 }
