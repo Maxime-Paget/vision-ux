@@ -24,7 +24,7 @@ export class Renderer {
      * @param {InsertPosition} position 
      */
     async renderPartial (position, partialName, destination) {
-        await fetch(`/partials/${partialName}.html`)
+        await fetch(`partials/${partialName}.html`)
             .then(async (response) => {
                 document.body.insertAdjacentHTML('afterbegin',await response.text())
             })

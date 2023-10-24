@@ -10,5 +10,5 @@
         "/nodes_modules/**",
         "/.vscode/**"
      ],
-     "liveServer.settings.root": "/public"
+     "liveServer.settings.root": "/docs"
 }
