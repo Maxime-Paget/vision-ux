@@ -1,0 +1,9 @@
+@use '../abstracts/colors' as c;
+
+:root {
+    @each $themes, $theme in c.$themes {
+        @each $propname, $value in $theme {
+            --clr-#{$propname}: #{$value};
+        }
+    }
+}

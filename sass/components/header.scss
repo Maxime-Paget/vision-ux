@@ -1,6 +1,6 @@
 .header {
     box-shadow: 2px 5px 3px -3px lightgray;
-    width: 85%;
+    width: 100vw;
     height: 10rem;
     position: fixed;
     display: flex;
@@ -10,6 +10,30 @@
     &__menu {
         display: flex;
         min-width: 50%;
+        min-height: 50%;
+        max-height: 50%;
+        justify-content: space-around;
+        list-style: none;
+        &__item {
+            display: flex;
+            align-items: center;
+            &>a {
+                color: var(--clr-text);
+                text-decoration: none;
+                text-align: center;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            max-height: 100%;
+            &.selected {
+                border-bottom: 1px solid var(--clr-yellow);
+            }
+        }
+    }
+    &__logo {
+        // max-height: 50%;
+        height: clamp(30%, 10rem, 50%)
     }
 }
 
