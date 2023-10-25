@@ -1,5 +1,3 @@
-// import { MainController } from "./controllers/MainController.js";
-
 import ScreenController from "./controllers/ScreenController.js";
 
 if (!window.localStorage.getItem('lang')) {

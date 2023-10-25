@@ -3,7 +3,7 @@ export class Renderer {
     dictionnary = 'fr';
     #templates = {};
 
-    renderTemplate() {
+    renderTemplate () {
 
     }
 
@@ -19,15 +19,31 @@ export class Renderer {
     }
 
     /**
-     * @param {*} partialName 
-     * @param {Element} destination 
-     * @param {InsertPosition} position 
+     * @param {*} partialName
+     * @param {Element} destination
+     * @param {InsertPosition} position
+     * @param {*} dataBind 
      */
-    async renderPartial (position, partialName, destination) {
+    async renderPartial (position, partialName, destination, dataBind) {
         await fetch(`partials/${partialName}.html`)
             .then(async (response) => {
-                document.body.insertAdjacentHTML('afterbegin',await response.text())
+                destination.insertAdjacentHTML(position, this.bindData(await response.text(), dataBind))
             })
             .catch(console.error)
+    }
+
+    /**
+     * 
+     * @param {String} html 
+     */
+    bindData (html, dataValue) {
+        const regex = /{{(.*?)}}/gi;
+        let bindedHtml = html; 
+        const toBindData = html.matchAll(regex);
+        for (const data of toBindData) {
+            const prop = data[1];
+            bindedHtml = bindedHtml.replaceAll(`{{${prop}}}`, dataValue?.[prop]);
+        }
+        return bindedHtml;
     }
 }

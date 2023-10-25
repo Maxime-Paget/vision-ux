@@ -1,39 +1,65 @@
 .header {
     box-shadow: 2px 5px 3px -3px lightgray;
     width: 100vw;
-    height: 10rem;
+    height: 15vh;
     position: fixed;
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
     align-items: center;
     &__menu {
-        display: flex;
-        min-width: 50%;
-        min-height: 50%;
-        max-height: 50%;
-        justify-content: space-around;
-        list-style: none;
-        &__item {
+        &-cancel {
+            display: none;
+        }
+        &-burger {
             display: flex;
-            align-items: center;
-            &>a {
-                color: var(--clr-text);
-                text-decoration: none;
-                text-align: center;
-                &:hover {
-                    cursor: pointer;
+        }
+        &-list {
+            display: flex;
+            flex-direction: column;
+            max-height: 100%;
+            translate: -14rem;
+            transition: ease-out .3s;
+            position: absolute;
+            &__item {
+                display: flex;
+                align-items: center;
+                &>a {
+                    color: var(--clr-text);
+                    text-decoration: none;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                max-height: 100%;
+                &.selected {
+                    border-bottom: 1px solid var(--clr-yellow);
                 }
             }
-            max-height: 100%;
-            &.selected {
-                border-bottom: 1px solid var(--clr-yellow);
+            &.deployed {
+                translate: 0;
             }
         }
     }
     &__logo {
-        // max-height: 50%;
         height: clamp(30%, 10rem, 50%)
+    }
+    &.largeScreen {
+        flex-direction: row-reverse;
+        & .header__menu {
+            width: 40rem;
+            &-burger {
+                display: none;
+            }
+            &-list {
+                position: relative;
+                translate: 0;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                list-style: none;
+                min-width: 100%;
+            }
+        }
     }
 }
 
