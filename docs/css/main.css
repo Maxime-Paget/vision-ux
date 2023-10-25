@@ -82,14 +82,12 @@ body::-webkit-scrollbar {
   height: 15vh;
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  gap: 35%;
+  padding-left: 2em;
   align-items: center;
 }
 .header__menu-cancel {
   display: none;
-}
-.header__menu-burger {
-  display: flex;
 }
 .header__menu-list {
   display: flex;
@@ -122,6 +120,9 @@ body::-webkit-scrollbar {
 }
 .header.largeScreen {
   flex-direction: row-reverse;
+  justify-content: space-around;
+  gap: 0;
+  padding-left: 0;
 }
 .header.largeScreen .header__menu {
   width: 40rem;

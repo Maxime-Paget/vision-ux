@@ -4,14 +4,12 @@
     height: 15vh;
     position: fixed;
     display: flex;
-    justify-content: space-around;
+    gap: 35%;
+    padding-left: 2em;
     align-items: center;
     &__menu {
         &-cancel {
             display: none;
-        }
-        &-burger {
-            display: flex;
         }
         &-list {
             display: flex;
@@ -41,10 +39,13 @@
         }
     }
     &__logo {
-        height: clamp(30%, 10rem, 50%)
+        height: clamp(30%, 10rem, 50%);
     }
     &.largeScreen {
         flex-direction: row-reverse;
+        justify-content: space-around;
+        gap: 0;
+        padding-left: 0;
         & .header__menu {
             width: 40rem;
             &-burger {
