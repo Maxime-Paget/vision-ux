@@ -4,9 +4,13 @@ if (!window.localStorage.getItem('lang')) {
     window.localStorage.setItem('lang', 'fr');
 }
 
-const currentScript = Array.from(document.scripts)
-    .find(script => script?.src.includes('main.js'));
 
-ScreenController.initScreen(currentScript.screen);
+addEventListener('load', (ev) => {
+    const currentScript = Array.from(document.scripts)
+        .find(script => script?.src.includes('main.js'));
+    console.log(currentScript)
+    ScreenController.initScreen(currentScript.screen);
+});
+
 
 
