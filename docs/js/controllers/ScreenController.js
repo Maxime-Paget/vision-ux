@@ -20,9 +20,9 @@ export default class ScreenController {
             'header',
             document.querySelector('body'),
             { platform: this.platform }
-        ).then(() =>
+        ).then(() => {
             this.initEvent()
-        ).catch(console.error);
+        }).catch(console.error);
 
         ScreenController.#initializing = false;
     }
@@ -42,6 +42,7 @@ export default class ScreenController {
     }
 
     initEvent() {
+        console.log('initEvent')
         window.addEventListener('resize', () => {
             const potentialPlatform = window.innerWidth <= 720 ? 'mobile' : 'largeScreen';
             if (this.platform !== potentialPlatform) {
