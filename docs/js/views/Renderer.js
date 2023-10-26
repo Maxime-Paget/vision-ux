@@ -22,15 +22,12 @@ export class Renderer {
      * @param {*} partialName
      * @param {Element} destination
      * @param {InsertPosition} position
-     * @param {*} dataBind 
+     * @param {*} dataBind
      */
     async renderPartial (position, partialName, destination, dataBind) {
-        console.log('partial')
-        await fetch(`partials/${partialName}.html`)
-            .then(async (response) => {
-                destination.insertAdjacentHTML(position, this.bindData(await response.text(), dataBind))
-            })
-            .catch(console.error)
+        const response = await fetch(`partials/${partialName}.html`);
+        const html = await response.text();
+        destination.insertAdjacentHTML(position, this.bindData(html, dataBind))
     }
 
     /**

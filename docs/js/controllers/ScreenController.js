@@ -16,6 +16,15 @@ export default class ScreenController {
         Renderer.instance.retrieveTemplates(); 
         this.platform = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/i.test(window.navigator.userAgent)
             || window.innerWidth <= 720 ? 'mobile' : 'largeScreen';
+        Renderer.instance.renderPartial(
+            'afterbegin',
+            'header',
+            document.querySelector('body'),
+            { platform: this.platform }
+        ).then(() => {
+            this.initEvent()
+        }).catch(console.error);
+
         ScreenController.#initializing = false;
     }
 
@@ -30,13 +39,7 @@ export default class ScreenController {
 
     static async initScreen (screenName) {
         this.#initializing = true;
-        await Renderer.instance.renderPartial(
-            'afterbegin',
-            'header',
-            document.querySelector('body'),
-            { platform: 'this.platform' }
-        )
-        new ScreenController().initEvent();
+        new ScreenController();
     }
 
     initEvent() {
