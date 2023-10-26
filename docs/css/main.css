@@ -139,9 +139,4 @@ body::-webkit-scrollbar {
   min-width: 100%;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-}
-
 /*# sourceMappingURL=main.css.map */
