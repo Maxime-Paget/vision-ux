@@ -14,7 +14,9 @@ export default class ScreenController {
         }
 
         Renderer.instance.retrieveTemplates(); 
-        this.platform = window.navigator.userAgentData.mobile || window.innerWidth <= 720 ? 'mobile' : 'largeScreen';
+        console.log(window.navigator.userAgentData.mobile);
+        this.platform = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/i.test(window.navigator.userAgent)
+            || window.innerWidth <= 720 ? 'mobile' : 'largeScreen';
         Renderer.instance.renderPartial(
             'afterbegin',
             'header',
